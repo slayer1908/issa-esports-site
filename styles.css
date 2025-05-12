@@ -31,3 +31,9 @@ button {
   color: #000;
   cursor: pointer;
 }
+.video-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
+}
+
