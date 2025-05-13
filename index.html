@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ISSA – Infinite Skill & Strategy Alliance</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
 </head>
@@ -20,7 +20,7 @@
   </header>
 
   <section id="hero">
-    <h2>Esports Tournaments. Infinite Skill. One Alliance.</h2>
+    <h2 id="typing"></h2>
   </section>
 
   <section id="about">
@@ -28,9 +28,33 @@
     <p>ISSA is a global esports organization hosting competitive and community gaming tournaments. We build a home for gamers to compete, improve, and connect.</p>
   </section>
 
+  <section id="bgmi">
+  <h3>What is BGMI?</h3>
+  <p>BGMI (Battlegrounds Mobile India) is India's top-tier battle royale game. ISSA hosts premier BGMI tournaments, offering intense competition, huge prize pools, and a platform for rising stars.</p>
+  <img src="https://cdn.esportsadda.com/bgmi/bgmi-logo.png" alt="BGMI Logo" style="max-width: 200px; display: block; margin: 1em auto;">
+  </section>
+
+
   <section id="tournaments">
   <h3>Upcoming Tournaments</h3>
   <div class="tournament-grid" id="tournamentList"></div>
+  </section>
+
+  <section id="leaderboard">
+  <h3>Top BGMI Squads</h3>
+  <div class="leaderboard-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Team Name</th>
+          <th>Kills</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboardData"></tbody>
+    </table>
+  </div>
   </section>
 
 
