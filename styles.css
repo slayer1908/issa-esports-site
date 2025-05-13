@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Orbitron', sans-serif;
   background-color: #111;
   color: #eee;
   margin: 0;
@@ -10,30 +10,100 @@ header {
   padding: 1em;
   text-align: center;
 }
+nav {
+  margin-top: 1em;
+}
 nav a {
   margin: 0 1em;
   color: #0ff;
-  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.3s;
 }
+nav a:hover {
+  color: #f0f;
+}
+
 section {
   padding: 2em;
   border-bottom: 1px solid #333;
 }
 #hero {
-  background: #222;
+  background: linear-gradient(to right, #111, #222);
+  color: #0ff;
   text-align: center;
-  padding: 4em 2em;
+  padding: 5em 2em;
+  font-size: 1.5em;
 }
+
 button {
   background-color: #0ff;
   border: none;
-  padding: 0.5em 1em;
+  padding: 0.75em 1.5em;
   color: #000;
-  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s;
 }
+button:hover {
+  background-color: #0cc;
+}
+
 .video-wrapper {
   display: flex;
   justify-content: center;
   margin: 2em 0;
+}
+.tournament-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5em;
+  margin-top: 1em;
+}
+
+.tournament-card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1em;
+  color: #eee;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  transition: transform 0.2s;
+}
+.tournament-card:hover {
+  transform: scale(1.03);
+  border-color: #0ff;
+}
+.tournament-card h4 {
+  color: #0ff;
+  margin-bottom: 0.5em;
+}
+.tournament-card p {
+  font-size: 0.9em;
+  margin-bottom: 1em;
+}
+.tournament-card button {
+  display: block;
+  margin-top: auto;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+input, textarea {
+  padding: 0.5em;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background: #222;
+  color: #fff;
+}
+
+input:focus, textarea:focus {
+  border-color: #0ff;
+  outline: none;
 }
 

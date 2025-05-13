@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ISSA – Infinite Skill & Strategy Alliance</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
 </head>
 <body>
   <header>
@@ -26,9 +29,10 @@
   </section>
 
   <section id="tournaments">
-    <h3>Upcoming Tournaments</h3>
-    <ul id="tournamentList"></ul>
+  <h3>Upcoming Tournaments</h3>
+  <div class="tournament-grid" id="tournamentList"></div>
   </section>
+
 
   <section id="join">
     <h3>Join the Alliance</h3>
@@ -36,13 +40,41 @@
     <button onclick="alert('Contact form coming soon!')">Get Involved</button>
   </section>
 
+  <section id="register">
+  <h3>Register for a Tournament</h3>
+  <form action="https://formspree.io/f/xvgawkdr" method="POST" id="registrationForm">
+    <input type="hidden" name="_redirect" value="https://slayer1908.github.io/issa-esports-site/">
+
+    
+
+    <label for="teamName">Team Name:</label>
+    <input type="text" id="teamName" name="teamName" required>
+
+    <label for="email">Contact Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="game">Game:</label>
+    <input type="text" id="game" name="game" required>
+
+    <label for="region">Region:</label>
+    <input type="text" id="region" name="region">
+
+    <label for="players">Player Names (comma-separated):</label>
+    <textarea id="players" name="players" rows="3" required></textarea>
+
+    <button type="submit">Submit Registration</button>
+    <p id="formMessage" style="margin-top: 1em;"></p>
+  </form>
+  </section>
+
+
   <section id="media">
   <h3>Latest from Our Channel</h3>
   <div class="video-wrapper">
     <iframe width="560" height="315" src="https://www.youtube.com/embed?listType=user_uploads&list=ISSAESPORTS" 
             title="Latest ISSAESPORTS video" frameborder="0" allowfullscreen></iframe>
   </div>
-</section>
+  </section>
 
 
  <footer>
@@ -52,7 +84,7 @@
     <a href="https://www.youtube.com/@ISSAESPORTS" target="_blank">📺 YouTube</a> |
     <a href="https://www.instagram.com/issaesports?igsh=emZqc3lkY2RrNHBh&utm_source=qr" target="_blank">📸 Instagram</a>
   </p>
-</footer>
+ </footer>
 
   
 
