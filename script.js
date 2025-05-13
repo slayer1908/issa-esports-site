@@ -80,3 +80,24 @@ leaderboard.forEach((entry, index) => {
   `;
   leaderboardTable.appendChild(row);
 });
+
+function updateCountdown() {
+  const targetDate = new Date("July 6, 2025 18:00:00").getTime();
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  if (distance <= 0) {
+    document.getElementById("timer").textContent = "Tournament has started!";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("timer").textContent =
+    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+setInterval(updateCountdown, 1000);
