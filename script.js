@@ -157,3 +157,37 @@ const navLinks = document.getElementById("navLinks");
 menuToggle.addEventListener("click", () => {
   navLinks.classList.toggle("show");
 });
+
+const matchSchedule = [
+  { date: "2025-06-25T18:00:00", match: "Team Alpha vs Team Beta", status: "Scheduled" },
+  { date: "2025-06-26T20:00:00", match: "Team Gamma vs Team Delta", status: "Scheduled" }
+];
+
+const scheduleTable = document.getElementById("scheduleData");
+
+matchSchedule.forEach((match) => {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${new Date(match.date).toLocaleString()}</td>
+    <td>${match.match}</td>
+    <td>${match.status}</td>
+  `;
+  scheduleTable.appendChild(row);
+});
+
+const matchHistory = [
+  { date: "2025-06-20T18:00:00", match: "Team Alpha vs Team Beta", winner: "Team Alpha" },
+  { date: "2025-06-21T20:00:00", match: "Team Gamma vs Team Delta", winner: "Team Delta" }
+];
+
+const historyTable = document.getElementById("historyData");
+
+matchHistory.forEach((match) => {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${new Date(match.date).toLocaleDateString()}</td>
+    <td>${match.match}</td>
+    <td>${match.winner}</td>
+  `;
+  historyTable.appendChild(row);
+});
