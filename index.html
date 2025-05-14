@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ISSA – Infinite Skill & Strategy Alliance</title>
+  <meta name="description" content="ISSA is a premier BGMI esports organization hosting tournaments, building community, and showcasing competitive talent.">
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-
 </head>
 <body>
+
   <header>
     <h1>ISSA – Infinite Skill & Strategy Alliance</h1>
     <nav>
@@ -21,117 +21,80 @@
     </nav>
   </header>
 
-  <section id="hero">
+  <section id="hero" data-aos="fade-up">
     <h2 id="typing"></h2>
   </section>
 
-  <section id="countdown">
-  <h3>Next Tournament Starts In:</h3>
-  <div id="timer" class="countdown-box">Loading...</div>
-</section>
+  <section id="countdown" data-aos="zoom-in">
+    <h3>Next Tournament Starts In:</h3>
+    <div id="timer" class="countdown-box">Loading...</div>
+  </section>
 
-  <section id="about">
+  <section id="about" data-aos="fade-up">
     <h3>About ISSA</h3>
     <p>ISSA is a global esports organization hosting competitive and community gaming tournaments. We build a home for gamers to compete, improve, and connect.</p>
   </section>
 
-  <section id="bgmi">
-  <h3>What is BGMI?</h3>
-  <p>BGMI (Battlegrounds Mobile India) is India's top-tier battle royale game. ISSA hosts premier BGMI tournaments, offering intense competition, huge prize pools, and a platform for rising stars.</p>
-  <img src="https://cdn.esportsadda.com/bgmi/bgmi-logo.png" alt="BGMI Logo" style="max-width: 200px; display: block; margin: 1em auto;">
-  </section>
-
-
-  <section id="tournaments">
-  <h3>Upcoming BGMI Tournaments</h3>
-  <div class="tournament-grid" id="dynamicTournaments"></div>
-  </section>
-
-
-  <section id="leaderboard">
-  <h3>Top BGMI Squads</h3>
-  <div class="leaderboard-table">
-    <table>
-      <thead>
-        <tr>
-          <th>Rank</th>
-          <th>Team Name</th>
-          <th>Kills</th>
-          <th>Points</th>
-        </tr>
-      </thead>
-      <tbody id="leaderboardData"></tbody>
-    </table>
-  </div>
-  </section>
-  <section id="hero" data-aos="fade-up">
   <section id="bgmi" data-aos="fade-right">
+    <h3>What is BGMI?</h3>
+    <p>BGMI (Battlegrounds Mobile India) is India's top-tier battle royale game. ISSA hosts premier BGMI tournaments, offering intense competition, huge prize pools, and a platform for rising stars.</p>
+    <img src="https://cdn.esportsadda.com/bgmi/bgmi-logo.png" alt="BGMI Logo" style="max-width: 200px; display: block; margin: 1em auto;">
+  </section>
+
   <section id="tournaments" data-aos="fade-left">
+    <h3>Upcoming BGMI Tournaments</h3>
+    <div class="tournament-grid" id="dynamicTournaments"></div>
+  </section>
+
   <section id="leaderboard" data-aos="zoom-in">
+    <h3>Top BGMI Squads</h3>
+    <div class="leaderboard-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Team Name</th>
+            <th>Kills</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardData"></tbody>
+      </table>
+    </div>
+  </section>
 
-
-
-  <section id="join">
+  <section id="join" data-aos="fade-up">
     <h3>Join the Alliance</h3>
     <p>Whether you're a player, team, or sponsor—contact us to be part of our next tournament.</p>
-    <button onclick="alert('Contact form coming soon!')">Get Involved</button>
+    <a href="register.html">
+      <button>Register Your Squad</button>
+    </a>
   </section>
 
-  <section id="register">
-  <h3>Register for a Tournament</h3>
-  <form action="https://formspree.io/f/xvgawkdr" method="POST" id="registrationForm">
-    <input type="hidden" name="_redirect" value="https://slayer1908.github.io/issa-esports-site/">
-  
-  
-    
-
-    <label for="teamName">Team Name:</label>
-    <input type="text" id="teamName" name="teamName" required>
-
-    <label for="email">Contact Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="game">Game:</label>
-    <input type="text" id="game" name="game" required>
-
-    <label for="region">Region:</label>
-    <input type="text" id="region" name="region">
-
-    <label for="players">Player Names (comma-separated):</label>
-    <textarea id="players" name="players" rows="3" required></textarea>
-
-    <button type="submit">Submit Registration</button>
-    <p id="formMessage" style="margin-top: 1em;"></p>
-  </form>
+  <section id="media" data-aos="zoom-in">
+    <h3>Latest from Our Channel</h3>
+    <div class="video-wrapper">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed?listType=user_uploads&list=ISSAESPORTS" 
+              title="Latest ISSAESPORTS video" frameborder="0" allowfullscreen></iframe>
+    </div>
   </section>
 
-
-  <section id="media">
-  <h3>Latest from Our Channel</h3>
-  <div class="video-wrapper">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed?listType=user_uploads&list=ISSAESPORTS" 
-            title="Latest ISSAESPORTS video" frameborder="0" allowfullscreen></iframe>
-  </div>
-  </section>
-
-
- <footer>
-  <p>&copy; 2025 ISSA. All rights reserved.</p>
-  <p>
-    Follow us:
-    <a href="https://www.youtube.com/@ISSAESPORTS" target="_blank">📺 YouTube</a> |
-    <a href="https://www.instagram.com/issaesports?igsh=emZqc3lkY2RrNHBh&utm_source=qr" target="_blank">📸 Instagram</a>
-  </p>
- </footer>
+  <footer>
+    <p>&copy; 2025 ISSA. All rights reserved.</p>
+    <p>
+      Follow us:
+      <a href="https://www.youtube.com/@ISSAESPORTS" target="_blank">📺 YouTube</a> |
+      <a href="https://www.instagram.com/issaesports?igsh=emZqc3lkY2RrNHBh&utm_source=qr" target="_blank">📸 Instagram</a>
+    </p>
+  </footer>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-  AOS.init();
+    AOS.init();
   </script>
+
   <div id="particles-js"></div>
-
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
   <script src="script.js"></script>
 </body>
 </html>

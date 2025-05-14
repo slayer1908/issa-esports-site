@@ -1,56 +1,4 @@
-const tournamentsData = [
-  {
-    name: "ISSA Championship Qualifiers",
-    date: "2025-06-20T18:00:00",
-    description: "Qualifiers for the grand BGMI showdown.",
-    registrationOpen: true,
-    registerLink: "https://formspree.io/f/yourFormID"
-  },
-  {
-    name: "Summer BGMI Showdown",
-    date: "2025-07-06T18:00:00",
-    description: "Top squads compete in the summer heat.",
-    registrationOpen: false,
-    registerLink: "#"
-  }
-];
-
-const renderTournaments = () => {
-  const container = document.getElementById("dynamicTournaments");
-  container.innerHTML = "";
-
-  tournamentsData.forEach(t => {
-    const startTime = new Date(t.date).getTime();
-    const now = new Date().getTime();
-    const distance = startTime - now;
-
-    let countdown = "Event Started";
-    if (distance > 0) {
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      countdown = `${days}d ${hours}h`;
-    }
-
-    const card = document.createElement("div");
-    card.className = "tournament-card";
-    card.innerHTML = `
-      <h4>${t.name}</h4>
-      <p><strong>Date:</strong> ${new Date(t.date).toLocaleString()}</p>
-      <p>${t.description}</p>
-      <p><strong>Countdown:</strong> ${countdown}</p>
-      <a href="${t.registerLink}" target="_blank">
-        <button ${!t.registrationOpen ? "disabled" : ""}>
-          ${t.registrationOpen ? "Register Now" : "Registration Closed"}
-        </button>
-      </a>
-    `;
-    container.appendChild(card);
-  });
-};
-
-renderTournaments();
-setInterval(renderTournaments, 60000); // Update every minute
-
+// ====== Typing Animation ======
 const phrases = [
   "India’s #1 BGMI Tournament Hub",
   "Compete. Conquer. Champion.",
@@ -75,6 +23,79 @@ function typeEffect() {
 }
 typeEffect();
 
+// ====== Countdown Timer to Next Tournament ======
+function updateCountdown() {
+  const targetDate = new Date("July 6, 2025 18:00:00").getTime();
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  const countdownBox = document.getElementById("timer");
+
+  if (distance <= 0) {
+    countdownBox.textContent = "Tournament has started!";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  countdownBox.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ====== Dynamic Tournament Cards ======
+const tournamentsData = [
+  {
+    name: "ISSA Championship Qualifiers",
+    date: "2025-06-20T18:00:00",
+    description: "Qualifiers for the grand BGMI showdown.",
+    registrationOpen: true,
+    registerLink: "https://formspree.io/f/xvgawkdr"
+  },
+  {
+    name: "Summer BGMI Showdown",
+    date: "2025-07-06T18:00:00",
+    description: "Top squads compete in the summer heat.",
+    registrationOpen: false,
+    registerLink: "#"
+  }
+];
+
+const renderTournaments = () => {
+  const container = document.getElementById("dynamicTournaments");
+  container.innerHTML = "";
+
+  tournamentsData.forEach(t => {
+    const startTime = new Date(t.date).getTime();
+    const now = new Date().getTime();
+    const distance = startTime - now;
+
+    const countdown = distance > 0
+      ? `${Math.floor(distance / (1000 * 60 * 60 * 24))}d ${Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))}h`
+      : "Event Started";
+
+    const card = document.createElement("div");
+    card.className = "tournament-card";
+    card.innerHTML = `
+      <h4>${t.name}</h4>
+      <p><strong>Date:</strong> ${new Date(t.date).toLocaleString()}</p>
+      <p>${t.description}</p>
+      <p><strong>Countdown:</strong> ${countdown}</p>
+      <a href="${t.registerLink}" target="_blank">
+        <button ${!t.registrationOpen ? "disabled" : ""}>
+          ${t.registrationOpen ? "Register Now" : "Registration Closed"}
+        </button>
+      </a>
+    `;
+    container.appendChild(card);
+  });
+};
+renderTournaments();
+
+// ====== Leaderboard ======
 const leaderboard = [
   { team: "Team Xtreme", kills: 39, points: 120 },
   { team: "Shadow Squad", kills: 35, points: 115 },
@@ -96,43 +117,14 @@ leaderboard.forEach((entry, index) => {
   leaderboardTable.appendChild(row);
 });
 
-function updateCountdown() {
-  const targetDate = new Date("July 6, 2025 18:00:00").getTime();
-  const now = new Date().getTime();
-  const distance = targetDate - now;
-
-  if (distance <= 0) {
-    document.getElementById("timer").textContent = "Tournament has started!";
-    return;
-  }
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  document.getElementById("timer").textContent =
-    `${days}d ${hours}h ${minutes}m ${seconds}s`;
-}
-
-setInterval(updateCountdown, 1000);
-
+// ====== Particles Background ======
 particlesJS("particles-js", {
   particles: {
-    number: {
-      value: 60,
-      density: { enable: true, value_area: 800 }
-    },
+    number: { value: 60, density: { enable: true, value_area: 800 } },
     color: { value: "#0ff" },
     shape: { type: "circle" },
-    opacity: {
-      value: 0.5,
-      random: true
-    },
-    size: {
-      value: 4,
-      random: true
-    },
+    opacity: { value: 0.5, random: true },
+    size: { value: 4, random: true },
     move: {
       enable: true,
       speed: 2,

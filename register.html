@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ISSA – Tournament Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Register your BGMI squad for upcoming ISSA esports tournaments.">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+  <header>
+    <h1>ISSA – Tournament Registration</h1>
+    <nav>
+      <a href="index.html">🏠 Home</a>
+    </nav>
+  </header>
+
+  <section id="register">
+    <h3>Register Your BGMI Squad</h3>
+    <form action="https://formspree.io/f/xvgawkdr" method="POST" id="registrationForm">
+      <input type="hidden" name="_redirect" value="https://slayer1908.github.io/issa-esports-site/">
+
+      <label for="teamName">Team Name:</label>
+      <input type="text" id="teamName" name="teamName" required>
+
+      <label for="email">Contact Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="game">Game:</label>
+      <input type="text" id="game" name="game" value="BGMI" required>
+
+      <label for="region">Region:</label>
+      <input type="text" id="region" name="region">
+
+      <label for="players">Player Names (comma-separated):</label>
+      <textarea id="players" name="players" rows="3" required></textarea>
+
+      <button type="submit">Submit Registration</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ISSA. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,3 +1,12 @@
+/* ====== GLOBAL STYLES ====== */
+body {
+  font-family: 'Rajdhani', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -8,6 +17,7 @@ body::before {
   z-index: 0;
 }
 
+/* ====== HEADER & NAV ====== */
 header {
   position: sticky;
   top: 0;
@@ -31,10 +41,17 @@ nav a:hover {
   color: #f0f;
 }
 
+/* ====== SECTIONS ====== */
 section {
   padding: 2em;
   border-bottom: 1px solid #333;
 }
+
+.alt-bg {
+  background-color: #1a1a1a;
+}
+
+/* ====== HERO SECTION ====== */
 #hero {
   background: url('https://cdn.esportsadda.com/bgmi/bgmi-banner.jpg') no-repeat center center/cover;
   color: #fff;
@@ -44,7 +61,16 @@ section {
   text-shadow: 2px 2px 4px #000;
 }
 
+#hero h2 {
+  animation: floatText 3s ease-in-out infinite;
+}
 
+@keyframes floatText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ====== BUTTONS ====== */
 button {
   background-color: #0ff;
   border: none;
@@ -58,13 +84,13 @@ button:hover {
   background-color: #0cc;
   transform: scale(1.05);
 }
-
-
-.video-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 2em 0;
+button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  color: #999;
 }
+
+/* ====== TOURNAMENT GRID ====== */
 .tournament-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -97,6 +123,8 @@ button:hover {
   display: block;
   margin-top: auto;
 }
+
+/* ====== FORM STYLES ====== */
 form {
   display: flex;
   flex-direction: column;
@@ -118,13 +146,14 @@ input:focus, textarea:focus {
   outline: none;
 }
 
-section:nth-child(even) {
-  background-color: #1a1a1a;
-}
-section:nth-child(odd) {
-  background-color: #111;
+/* ====== VIDEO SECTION ====== */
+.video-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
 }
 
+/* ====== LEADERBOARD TABLE ====== */
 .leaderboard-table {
   overflow-x: auto;
   margin-top: 1em;
@@ -148,6 +177,7 @@ tr:hover {
   background-color: #333;
 }
 
+/* ====== COUNTDOWN STYLES ====== */
 #countdown {
   text-align: center;
   background-color: #000;
@@ -163,25 +193,7 @@ tr:hover {
   letter-spacing: 2px;
 }
 
-button:disabled {
-  background-color: #555;
-  cursor: not-allowed;
-  color: #999;
-}
-
-#hero h2 {
-  animation: floatText 3s ease-in-out infinite;
-}
-
-@keyframes floatText {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
+/* ====== PARTICLES BACKGROUND ====== */
 #particles-js {
   position: fixed;
   width: 100%;
@@ -190,4 +202,31 @@ button:disabled {
   z-index: -1;
   top: 0;
   left: 0;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  text-align: center;
+  padding: 1.5em;
+  background: #111;
+  border-top: 1px solid #333;
+}
+footer a {
+  color: #0ff;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #f0f;
+}
+
+/* ====== OPTIONAL: CUSTOM SCROLLBAR ====== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #0ff;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
 }
