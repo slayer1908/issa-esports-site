@@ -101,3 +101,56 @@ function updateCountdown() {
 }
 
 setInterval(updateCountdown, 1000);
+
+const tournamentsData = [
+  {
+    name: "ISSA Championship Qualifiers",
+    date: "2025-06-20T18:00:00",
+    description: "Qualifiers for the grand BGMI showdown.",
+    registrationOpen: true,
+    registerLink: "https://formspree.io/f/yourFormID"
+  },
+  {
+    name: "Summer BGMI Showdown",
+    date: "2025-07-06T18:00:00",
+    description: "Top squads compete in the summer heat.",
+    registrationOpen: false,
+    registerLink: "#"
+  }
+];
+
+const renderTournaments = () => {
+  const container = document.getElementById("dynamicTournaments");
+  container.innerHTML = "";
+
+  tournamentsData.forEach(t => {
+    const startTime = new Date(t.date).getTime();
+    const now = new Date().getTime();
+    const distance = startTime - now;
+
+    let countdown = "Event Started";
+    if (distance > 0) {
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      countdown = `${days}d ${hours}h`;
+    }
+
+    const card = document.createElement("div");
+    card.className = "tournament-card";
+    card.innerHTML = `
+      <h4>${t.name}</h4>
+      <p><strong>Date:</strong> ${new Date(t.date).toLocaleString()}</p>
+      <p>${t.description}</p>
+      <p><strong>Countdown:</strong> ${countdown}</p>
+      <a href="${t.registerLink}" target="_blank">
+        <button ${!t.registrationOpen ? "disabled" : ""}>
+          ${t.registrationOpen ? "Register Now" : "Registration Closed"}
+        </button>
+      </a>
+    `;
+    container.appendChild(card);
+  });
+};
+
+renderTournaments();
+setInterval(renderTournaments, 60000); // Update every minute
