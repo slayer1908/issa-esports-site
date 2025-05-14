@@ -1,40 +1,55 @@
-const tournaments = [
+const tournamentsData = [
   {
-    name: "ISSA Showdown",
-    date: "June 10, 2025",
-    description: "A high-stakes tournament for FPS lovers. Open to all regions."
+    name: "ISSA Championship Qualifiers",
+    date: "2025-06-20T18:00:00",
+    description: "Qualifiers for the grand BGMI showdown.",
+    registrationOpen: true,
+    registerLink: "https://formspree.io/f/yourFormID"
   },
   {
-    name: "Summer Clash",
-    date: "July 22, 2025",
-    description: "MOBA tournament featuring top amateur teams worldwide."
+    name: "Summer BGMI Showdown",
+    date: "2025-07-06T18:00:00",
+    description: "Top squads compete in the summer heat.",
+    registrationOpen: false,
+    registerLink: "#"
   }
 ];
 
-const list = document.getElementById("tournamentList");
+const renderTournaments = () => {
+  const container = document.getElementById("dynamicTournaments");
+  container.innerHTML = "";
 
-tournaments.forEach(t => {
-  const div = document.createElement("div");
-  div.className = "tournament-card";
-  div.innerHTML = `
-    <h4>${t.name}</h4>
-    <p><strong>Date:</strong> ${t.date}</p>
-    <p>${t.description}</p>
-    <button onclick="alert('Registration opens soon!')">Register</button>
-  `;
-  list.appendChild(div);
-});
+  tournamentsData.forEach(t => {
+    const startTime = new Date(t.date).getTime();
+    const now = new Date().getTime();
+    const distance = startTime - now;
 
-document.getElementById("registrationForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+    let countdown = "Event Started";
+    if (distance > 0) {
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      countdown = `${days}d ${hours}h`;
+    }
 
-  // Here you could send data to a backend API or use Formspree
-  const message = document.getElementById("formMessage");
-  message.style.color = "#0f0";
-  message.textContent = "Thanks for registering! We'll contact you soon.";
-  
-  this.reset();
-});
+    const card = document.createElement("div");
+    card.className = "tournament-card";
+    card.innerHTML = `
+      <h4>${t.name}</h4>
+      <p><strong>Date:</strong> ${new Date(t.date).toLocaleString()}</p>
+      <p>${t.description}</p>
+      <p><strong>Countdown:</strong> ${countdown}</p>
+      <a href="${t.registerLink}" target="_blank">
+        <button ${!t.registrationOpen ? "disabled" : ""}>
+          ${t.registrationOpen ? "Register Now" : "Registration Closed"}
+        </button>
+      </a>
+    `;
+    container.appendChild(card);
+  });
+};
+
+renderTournaments();
+setInterval(renderTournaments, 60000); // Update every minute
 
 const phrases = [
   "India’s #1 BGMI Tournament Hub",
@@ -102,55 +117,3 @@ function updateCountdown() {
 
 setInterval(updateCountdown, 1000);
 
-const tournamentsData = [
-  {
-    name: "ISSA Championship Qualifiers",
-    date: "2025-06-20T18:00:00",
-    description: "Qualifiers for the grand BGMI showdown.",
-    registrationOpen: true,
-    registerLink: "https://formspree.io/f/yourFormID"
-  },
-  {
-    name: "Summer BGMI Showdown",
-    date: "2025-07-06T18:00:00",
-    description: "Top squads compete in the summer heat.",
-    registrationOpen: false,
-    registerLink: "#"
-  }
-];
-
-const renderTournaments = () => {
-  const container = document.getElementById("dynamicTournaments");
-  container.innerHTML = "";
-
-  tournamentsData.forEach(t => {
-    const startTime = new Date(t.date).getTime();
-    const now = new Date().getTime();
-    const distance = startTime - now;
-
-    let countdown = "Event Started";
-    if (distance > 0) {
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      countdown = `${days}d ${hours}h`;
-    }
-
-    const card = document.createElement("div");
-    card.className = "tournament-card";
-    card.innerHTML = `
-      <h4>${t.name}</h4>
-      <p><strong>Date:</strong> ${new Date(t.date).toLocaleString()}</p>
-      <p>${t.description}</p>
-      <p><strong>Countdown:</strong> ${countdown}</p>
-      <a href="${t.registerLink}" target="_blank">
-        <button ${!t.registrationOpen ? "disabled" : ""}>
-          ${t.registrationOpen ? "Register Now" : "Registration Closed"}
-        </button>
-      </a>
-    `;
-    container.appendChild(card);
-  });
-};
-
-renderTournaments();
-setInterval(renderTournaments, 60000); // Update every minute
