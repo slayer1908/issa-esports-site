@@ -1,3 +1,8 @@
+// ====== Fade-in page transition ======
+window.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("fade-in");
+});
+
 // ====== Typing Animation ======
 const phrases = [
   "India’s #1 BGMI Tournament Hub",
@@ -144,4 +149,11 @@ particlesJS("particles-js", {
     }
   },
   retina_detect: true
+});
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
 });

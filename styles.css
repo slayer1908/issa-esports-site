@@ -55,6 +55,10 @@ nav a:hover {
   text-shadow: 2px 2px 4px #000;
   overflow: hidden;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 #hero::before {
   content: "";
@@ -65,6 +69,49 @@ nav a:hover {
   background: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
+#typing {
+  display: inline-block;
+  min-height: 1.5em;
+  min-width: 380px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  font-size: 1.5em;
+  padding: 0.8em 1.5em;
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+              url('https://w0.peakpx.com/wallpaper/123/233/HD-wallpaper-bgmi-bgmi-thumbnail.jpg') no-repeat center center/cover;
+  box-shadow: 0 0 15px #0ff, 0 0 30px rgba(0,255,255,0.4);
+  animation: pulseGlow 2s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+
+}
+
+#typing::after {
+  content: '|';
+  animation: blink 1s step-start infinite;
+  margin-left: 5px;
+  color: #0ff;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px #0ff, 0 0 30px rgba(0,255,255,0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px #f0f, 0 0 60px rgba(255,0,255,0.4);
+  }
+}
+
+
+
 #hero h2 {
   position: relative;
   z-index: 2;
@@ -243,4 +290,103 @@ footer a:hover {
 }
 ::-webkit-scrollbar-track {
   background: #111;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  margin-left: 1em;
+}
+nav a {
+  text-decoration: none;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: #0ff;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #111;
+    margin-top: 1em;
+    border-top: 1px solid #0ff;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .nav-links li {
+    margin: 1em 0;
+    text-align: center;
+  }
+}
+
+/* ====== PAGE TRANSITION ====== */
+body {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+#bracket {
+  text-align: center;
+}
+
+.bracket-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.round {
+  background: rgba(17, 17, 17, 0.9);
+  padding: 1em;
+  border-radius: 10px;
+  border: 1px solid #0ff;
+  box-shadow: 0 0 10px rgba(0,255,255,0.2);
+  min-width: 200px;
+  flex: 1;
+}
+
+.round h4 {
+  color: #0ff;
+  margin-bottom: 1em;
+}
+
+.round ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.round ul li {
+  background: #222;
+  padding: 0.8em;
+  margin-bottom: 0.8em;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #fff;
 }
