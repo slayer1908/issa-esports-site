@@ -117,3 +117,39 @@ function updateCountdown() {
 
 setInterval(updateCountdown, 1000);
 
+particlesJS("particles-js", {
+  particles: {
+    number: {
+      value: 60,
+      density: { enable: true, value_area: 800 }
+    },
+    color: { value: "#0ff" },
+    shape: { type: "circle" },
+    opacity: {
+      value: 0.5,
+      random: true
+    },
+    size: {
+      value: 4,
+      random: true
+    },
+    move: {
+      enable: true,
+      speed: 2,
+      direction: "none",
+      out_mode: "out"
+    }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: { enable: true, mode: "grab" },
+      onclick: { enable: true, mode: "push" }
+    },
+    modes: {
+      grab: { distance: 140, line_linked: { opacity: 0.7 } },
+      push: { particles_nb: 4 }
+    }
+  },
+  retina_detect: true
+});
